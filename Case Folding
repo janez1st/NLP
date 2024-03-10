@@ -1,0 +1,34 @@
+import re
+import nltk
+from nltk import ngrams, word_tokenize
+from nltk.corpus import stopwords
+
+# Download 'stopwords' resource
+nltk.download('stopwords')
+
+kalimat = "Pada pukul 15.30 WIB, tim IT sedang menyiapkan rencana migrasi sistem operasi ke versi terbaru. Rencana ini melibatkan sekitar 50 komputer, termasuk komputer-komputer dengan spesifikasi tertentu seperti RAM 16GB, dan prosesor Intel Core i7. Tugasnya akan dimulai pada tanggal 25/02/2024, dan diperkirakan akan selesai dalam kurun waktu dua minggu. Untuk memastikan kelancaran proses, diperlukan kolaborasi antara departemen IT, bagian operasional, dan vendor yang bertanggung jawab atas perangkat lunak yang digunakan."
+
+# Case Folding
+kalimat = kalimat.lower()
+
+# Tokenisasi Kata
+kata_tokens = word_tokenize(kalimat)
+
+# Hapus tanda baca dan angka
+kata_tokens = [token for token in kata_tokens if re.match(r'^\w+$', token)]
+
+# Hapus stop words
+stop_words = set(stopwords.words('indonesian'))
+kata_tokens = [token for token in kata_tokens if token not in stop_words]
+
+# 3-gram Tokenisasi Frasa
+n = 3
+frasa_tokens = list(ngrams(kata_tokens, n))
+
+# Menampilkan hasil
+print("Case Folding:")
+print(kalimat)
+print("\nTokenisasi Kata:")
+print(kata_tokens)
+print("\n3-gram Tokenisasi Frasa:")
+print(frasa_tokens)
