@@ -1,0 +1,23 @@
+from textblob import TextBlob
+from googletrans import Translator
+
+def sentiment_analysis():
+    kalimat = input("Input kalimat = ")
+
+    try:
+        translator = Translator()
+        translation = translator.translate(kalimat)
+        id_blob = TextBlob(translation.text) 
+        sentiment = id_blob.sentiment.polarity
+        print("Sentiment = ", sentiment)
+
+        if sentiment > 0:
+            print("Sentimen positif")
+        elif sentiment < 0:
+            print("Sentimen negatif")
+        else: 
+            print("Sentimen netral")
+    except Exception as e:
+        print("Error: ", str(e))
+
+sentiment_analysis()
