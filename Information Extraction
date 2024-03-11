@@ -1,0 +1,15 @@
+import re
+text = "Pada 2023 pengungsi Rohingya datang kembali ke Aceh"
+
+tahun_match = re.search (r'\b\d{4}\b', text)
+etnis_match = re.search (r'Rohingya',text)
+lokasi_match = re.search (r'Aceh',text)
+
+if tahun_match and etnis_match and lokasi_match:
+    tahun = tahun_match.group()
+    etnis = etnis_match.group()
+    lokasi = lokasi_match.group()
+    
+    print(f"Tahun : {tahun}")
+    print(f"Etnis : {etnis}")
+    print(f"Lokasi : {lokasi}")
