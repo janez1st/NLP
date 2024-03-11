@@ -1,0 +1,18 @@
+import re
+#pada bagian ini bebas untuk memasukkan kalimat sesuai yang diinginkan.
+dokumen = [
+ "Tahun 2024 adalah tahun yang panas untuk dunia perpolitikan",
+ "Tukang parkir di Pekanbaru sangat merajalela",
+ "Pada pemilihan umum 2024 besok banyak partai politik melakukan manuver",
+ "Tiap ATM ada tukang parkir",
+ "Bernafas sangat berguna untuk melanjutkan hidup",
+ "Mengeluh bagian dari hidup"
+]
+#inputkan kalimat yang ingin dicari dari kalimat yang sudah diinputkan sebelumnya.
+query = input("Masukkan query pencarian: ")
+
+for i, doc in enumerate(dokumen):
+ if re.search(query, doc, re.IGNORECASE):
+     print(f"Dokumen-{i+1} relevan dengan query pencarian.")
+ else:
+     print(f"Dokumen-{i+1} tidak relevan dengan query pencarian.")
