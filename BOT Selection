@@ -1,0 +1,39 @@
+
+import random
+# Mengatur pertanyaan dan jawaban sesuai yang diinginkan. Disini saya memasukkan mengenai informasi seputar sebuah universitas
+pertanyaan_jawaban = {
+     "profil": "Universitas Sentosa beralamat di Jl.Rumbai yang telah ada sejak 3 hari yang lalu dibawah naungan yayasan MariPeduli",
+    "beasiswa": "Universitas Sentosa memiliki program beasiswa dari universitas maupun pemprov hingga KIPK",
+    "Informasi": "Informasi mengenai universitas kami silahkan kunjungi www.univsentosa.com",
+    "pendaftaran": "Silahkan kunjungi www.univsentosa.com untuk pendaftaran mahasiswa baru atau hubungi 0217583753",
+    "jurusan" : "Universitas Sentosa memiliki 15 jurusan dengan akreditasi B.Untuk informasi lebih lanjut kunjungi www.univsentosa.com"
+}
+
+def chatbot(pertanyaan):
+    # Mencari jawaban sesuai dengan pertanyaan
+    jawaban = pertanyaan_jawaban.get(pertanyaan, "Maaf layanan tidak tersedia")
+    return jawaban
+
+def tampilkan_menu():
+    print("Selamat datang di ChatBot Universitas Sentosa,Silahkan Pilih layanan:")
+    for idx, pertanyaan in enumerate(pertanyaan_jawaban.keys(), 1):
+        print(f"{idx}. {pertanyaan}")
+ 
+while True:
+    tampilkan_menu()
+
+    # Mengambil input pengguna
+    pilihan_pengguna = input("Pilih nomor layanan atau ketik 'selesai' untuk keluar: ")
+
+    # Mengecek apakah pengguna memilih untuk keluar
+    if pilihan_pengguna.lower() == "selesai":
+        print("Terima kasih")
+        break
+
+    # Memeriksa apakah input adalah nomor dan valid
+    if pilihan_pengguna.isdigit() and 1 <= int(pilihan_pengguna) <= len(pertanyaan_jawaban):
+        index_pilihan = int(pilihan_pengguna) - 1
+        pertanyaan = list(pertanyaan_jawaban.keys())[index_pilihan]
+        print(f"Chatbot: {chatbot(pertanyaan)}")
+    else:
+        print("Pilihan tidak valid. Silakan pilih nomor layanan yang sesuai atau ketik 'selesai'.")
