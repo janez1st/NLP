@@ -1,0 +1,36 @@
+from googletrans import Translator
+
+def translate_text(text, target_language):
+    translator = Translator()
+    translation = translator.translate(text, dest=target_language)
+    return translation.text
+
+def main():
+    print("=== Menu Translate ===")
+    
+    input_text = input("Silahkan input kalimat = ")
+    
+    print("Pilih translate")
+    print("a. Bahasa Inggris")
+    print("b. Bahasa Perancis")
+    print("c. Bahasa Spanyol")
+    
+    language_option = input("Pilih jenis bahasa = ")
+
+#Pilihan bahasa bisa diubah sesuai keinginan dengan menggunakan kode bahasa, misalnya kode "fr" untuk Prancis.
+    if language_option == 'a':
+        target_language = 'en'
+    elif language_option == 'b':
+        target_language = 'fr'
+    elif language_option == 'c':
+        target_language = 'es'
+    else:
+        print("Pilihan bahasa tidak valid.")
+        return
+    
+    translated_text = translate_text(input_text, target_language)
+    
+    print(f"Hasil translate = {translated_text}")
+
+if __name__ == "__main__":
+    main()
