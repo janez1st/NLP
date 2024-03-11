@@ -6,6 +6,7 @@ from nltk.corpus import stopwords
 # Download 'stopwords' resource
 nltk.download('stopwords')
 
+#Pada bagian kalimat, masukkan kalimat yang diinginkan.
 kalimat = "Pada pukul 15.30 WIB, tim IT sedang menyiapkan rencana migrasi sistem operasi ke versi terbaru. Rencana ini melibatkan sekitar 50 komputer, termasuk komputer-komputer dengan spesifikasi tertentu seperti RAM 16GB, dan prosesor Intel Core i7. Tugasnya akan dimulai pada tanggal 25/02/2024, dan diperkirakan akan selesai dalam kurun waktu dua minggu. Untuk memastikan kelancaran proses, diperlukan kolaborasi antara departemen IT, bagian operasional, dan vendor yang bertanggung jawab atas perangkat lunak yang digunakan."
 
 # Case Folding
